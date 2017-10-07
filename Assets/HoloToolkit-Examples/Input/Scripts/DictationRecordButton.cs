@@ -10,17 +10,17 @@ namespace HoloToolkit.Unity.InputModule.Tests
         [SerializeField]
         [Range(0.1f, 5f)]
         [Tooltip("The time length in seconds before dictation recognizer session ends due to lack of audio input in case there was no audio heard in the current session.")]
-        private float initialSilenceTimeout = 5f;
+        private float initialSilenceTimeout = 2f;
 
         [SerializeField]
         [Range(5f, 60f)]
         [Tooltip("The time length in seconds before dictation recognizer session ends due to lack of audio input.")]
-        private float autoSilenceTimeout = 20f;
+        private float autoSilenceTimeout = 10f;
 
         [SerializeField]
         [Range(1, 60)]
         [Tooltip("Length in seconds for the manager to listen.")]
-        private int recordingTime = 10;
+        private int recordingTime = 5;
 
         [SerializeField]
         private TextMesh speechToTextOutput;
@@ -51,6 +51,7 @@ namespace HoloToolkit.Unity.InputModule.Tests
                 speechToTextOutput.color = Color.white;
                 buttonRenderer.enabled = true;
                 recordLight.SetActive(false);
+                Debug.LogWarning("stop recording");
             }
             else
             {
@@ -59,26 +60,31 @@ namespace HoloToolkit.Unity.InputModule.Tests
                 speechToTextOutput.color = Color.green;
                 recordLight.SetActive(true);
                 buttonRenderer.enabled = false;
+                Debug.LogWarning("start recording");
             }
         }
 
         public void OnDictationHypothesis(DictationEventData eventData)
         {
+            Debug.LogWarning("OnDictationHypothesis");
             speechToTextOutput.text = eventData.DictationResult;
         }
 
         public void OnDictationResult(DictationEventData eventData)
-        {
+        {   
+            Debug.LogWarning("OndictationResult");
             speechToTextOutput.text = eventData.DictationResult;
         }
 
         public void OnDictationComplete(DictationEventData eventData)
         {
+            Debug.LogWarning("onComplete");
             speechToTextOutput.text = eventData.DictationResult;
         }
 
         public void OnDictationError(DictationEventData eventData)
         {
+            Debug.LogWarning("onDictationError");
             isRecording = false;
             speechToTextOutput.color = Color.red;
             buttonRenderer.enabled = true;

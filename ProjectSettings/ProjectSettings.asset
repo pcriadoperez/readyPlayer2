@@ -585,9 +585,9 @@ PlayerSettings:
   metroPackageVersion: 1.2017.1.2
   metroCertificatePath: Assets/WSATestCertificate.pfx
   metroCertificatePassword: 
-  metroCertificateSubject: DefaultCompany
-  metroCertificateIssuer: DefaultCompany
-  metroCertificateNotAfter: 004b82c47d01d401
+  metroCertificateSubject: Microsoft
+  metroCertificateIssuer: Microsoft
+  metroCertificateNotAfter: 80c5ad627f5ed401
   metroApplicationDescription: MixedRealityToolkit-Unity
   wsaImages: {}
   metroTileShortName: MixedRealityToolkit-Unity
@@ -612,15 +612,15 @@ PlayerSettings:
       EnterpriseAuthentication: False
       HumanInterfaceDevice: False
       InputInjectionBrokered: False
-      InternetClient: False
-      InternetClientServer: True
+      InternetClient: True
+      InternetClientServer: False
       Location: False
       Microphone: True
       MusicLibrary: False
       Objects3D: False
       PhoneCall: False
       PicturesLibrary: False
-      PrivateNetworkClientServer: True
+      PrivateNetworkClientServer: False
       Proximity: False
       RemovableStorage: False
       SharedUserCertificates: False
